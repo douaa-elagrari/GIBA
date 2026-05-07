@@ -1,0 +1,227 @@
+/* ═══════════════════════════════════════════════════════
+   RequestPdfPreview.css — PDF Preview Component Styles
+═══════════════════════════════════════════════════════ */
+
+/* ── Root container ────────────────────────────────────────── */
+.pdf-root {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12pt;
+  line-height: 1.4;
+  color: #000;
+  background: #fff;
+  width: 210mm; /* A4 width */
+  min-height: 297mm; /* A4 height */
+  padding: 20mm;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* ── Header section ────────────────────────────────────────── */
+.pdf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20pt;
+  border-bottom: 1pt solid #000;
+  padding-bottom: 10pt;
+}
+
+.pdf-logo-block {
+  flex: 1;
+  text-align: left;
+}
+
+.pdf-logo-border {
+  border: 2pt solid #000;
+  padding: 5pt 10pt;
+  display: inline-block;
+  margin-bottom: 5pt;
+}
+
+.pdf-logo-text {
+  font-size: 18pt;
+  font-weight: bold;
+  display: block;
+  line-height: 1;
+}
+
+.pdf-logo-sub {
+  font-size: 10pt;
+  display: block;
+  line-height: 1;
+}
+
+.pdf-company-name {
+  font-size: 10pt;
+  margin: 0;
+  font-weight: normal;
+}
+
+.pdf-title-block {
+  flex: 2;
+  text-align: center;
+}
+
+.pdf-doc-title {
+  font-size: 14pt;
+  font-weight: bold;
+  margin: 0;
+  text-decoration: underline;
+}
+
+.pdf-meta-box {
+  flex: 1;
+  text-align: right;
+}
+
+.pdf-meta-table {
+  font-size: 9pt;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.pdf-meta-table td {
+  padding: 2pt 5pt;
+  border: none;
+  vertical-align: top;
+}
+
+.pdf-meta-table td:first-child {
+  font-weight: bold;
+  text-align: left;
+}
+
+/* ── Reference line ────────────────────────────────────────── */
+.pdf-ref-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11pt;
+  margin: 15pt 0;
+  padding: 5pt 0;
+  border-top: 1pt solid #000;
+  border-bottom: 1pt solid #000;
+}
+
+/* ── Sections ──────────────────────────────────────────────── */
+.pdf-section {
+  margin-bottom: 15pt;
+}
+
+.pdf-field-row {
+  display: flex;
+  margin-bottom: 8pt;
+  align-items: baseline;
+}
+
+.pdf-field-label {
+  font-weight: bold;
+  min-width: 120pt;
+  margin-right: 10pt;
+  flex-shrink: 0;
+}
+
+.pdf-field-value {
+  flex: 1;
+  border-bottom: 1pt dotted #999;
+  padding-bottom: 2pt;
+  min-height: 14pt;
+}
+
+/* ── Decision box ──────────────────────────────────────────── */
+.pdf-decision-box {
+  border: 2pt solid #000;
+  padding: 10pt;
+  margin: 20pt 0;
+  background: #f9f9f9;
+}
+
+.pdf-decision-title {
+  font-size: 12pt;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 10pt 0;
+  text-decoration: underline;
+}
+
+.pdf-decision-row {
+  display: flex;
+  margin-bottom: 8pt;
+  align-items: baseline;
+}
+
+.pdf-decision-status {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.pdf-status-approved {
+  color: #008000;
+}
+
+.pdf-status-rejected {
+  color: #ff0000;
+}
+
+.pdf-status-pending {
+  color: #ffa500;
+}
+
+/* ── Signature zone ────────────────────────────────────────── */
+.pdf-sig-zone {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30pt;
+  gap: 20pt;
+}
+
+.pdf-sig-box {
+  flex: 1;
+  text-align: center;
+}
+
+.pdf-sig-label {
+  font-size: 10pt;
+  margin: 0 0 20pt 0;
+  font-weight: normal;
+}
+
+.pdf-sig-line {
+  border-top: 1pt solid #000;
+  margin: 0 auto;
+  width: 80%;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.pdf-footer {
+  position: absolute;
+  bottom: 20mm;
+  left: 20mm;
+  right: 20mm;
+  text-align: center;
+  font-size: 9pt;
+  border-top: 1pt solid #000;
+  padding-top: 5pt;
+}
+
+.pdf-footer p {
+  margin: 2pt 0;
+}
+
+/* ── Print styles ──────────────────────────────────────────── */
+@media print {
+  .pdf-root {
+    width: auto;
+    min-height: auto;
+    margin: 0;
+    padding: 15mm;
+    box-shadow: none;
+  }
+
+  .pdf-footer {
+    position: fixed;
+    bottom: 15mm;
+    left: 15mm;
+    right: 15mm;
+  }
+}

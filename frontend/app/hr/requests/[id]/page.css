@@ -1,0 +1,464 @@
+/* ═══════════════════════════════════════════════════════
+   requests/[id]/page.css  —  Request Detail Page
+═══════════════════════════════════════════════════════ */
+
+/* ── Root ───────────────────────────────────────────── */
+.rd-root {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+/* ── Top bar ────────────────────────────────────────── */
+.rd-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.rd-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.82rem;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.rd-back-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.rd-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Action buttons ─────────────────────────────────── */
+.rd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 2.2rem;
+  padding: 0 1rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.rd-btn-approve {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #16a34a;
+}
+.rd-btn-approve:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+}
+
+.rd-btn-reject {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+.rd-btn-reject:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.rd-btn-comment {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+.rd-btn-comment:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.rd-btn-print {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+.rd-btn-print:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.rd-btn-download {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+}
+.rd-btn-download:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+/* ── Split layout ───────────────────────────────────── */
+.rd-split {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── LEFT panel ─────────────────────────────────────── */
+.rd-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rd-left-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rd-left-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* ── Cards ──────────────────────────────────────────── */
+.rd-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.rd-card-decision {
+  border-color: #fde68a;
+  background: #fffbeb;
+}
+
+.rd-card-heading {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+  margin: 0 0 0.75rem;
+}
+
+/* ── Info rows ──────────────────────────────────────── */
+.rd-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.rd-info-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.rd-info-icon {
+  color: #94a3b8;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.rd-info-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.rd-info-label {
+  font-size: 0.73rem;
+  color: #94a3b8;
+  margin: 0 0 0.1rem;
+}
+
+.rd-info-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* ── Status badges (same as page.css, scoped to rd-) ── */
+.rd-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+.rd-badge-pending {
+  background: #fef9c3;
+  color: #a16207;
+}
+.rd-badge-approved {
+  background: #dcfce7;
+  color: #166534;
+}
+.rd-badge-rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ── RIGHT panel ────────────────────────────────────── */
+.rd-right {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #f8fafc;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  /* Stretch to full column height */
+  min-height: 600px;
+}
+
+.rd-pdf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: #fff;
+}
+
+.rd-pdf-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  margin: 0;
+}
+
+.rd-pdf-scroll {
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+  flex: 1;
+}
+
+/* ── Not found ──────────────────────────────────────── */
+.rd-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 60vh;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .rd-split {
+    grid-template-columns: 1fr;
+  }
+
+  .rd-right {
+    min-height: 500px;
+  }
+}
+
+/* ── Comments ─────────────────────────────────────────── */
+.rd-comments-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.rd-add-comment-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.rd-add-comment-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.rd-comment-form {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.rd-comment-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.15s ease;
+}
+
+.rd-comment-input:focus {
+  outline: none;
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+.rd-comment-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+}
+
+.rd-btn-cancel {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #64748b;
+}
+
+.rd-btn-cancel:hover {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+}
+
+.rd-btn-submit {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+}
+
+.rd-btn-submit:hover:not(:disabled) {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.rd-btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rd-comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rd-no-comments {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.rd-comment {
+  padding: 1rem;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.rd-comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.rd-comment-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.rd-author-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.rd-author-role {
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.rd-comment-date {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.rd-comment-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #374151;
+  margin: 0;
+}
+
+/* ── Print ──────────────────────────────────────────── */
+@media print {
+  /* Hide the entire page chrome */
+  .rd-root > .rd-topbar,
+  .rd-root > .rd-split > .rd-left,
+  .rd-pdf-toolbar {
+    display: none !important;
+  }
+
+  .rd-right {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .rd-pdf-scroll {
+    padding: 0;
+    overflow: visible;
+  }
+}

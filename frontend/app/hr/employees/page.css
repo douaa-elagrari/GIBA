@@ -1,0 +1,136 @@
+.hr-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.hr-table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+  background: #fff;
+}
+
+.hr-table-header {
+  background: #f8fafc;
+}
+
+.hr-table-row {
+  transition: background-color 0.15s ease;
+}
+.hr-table-row:hover {
+  background-color: #f1f5f9 !important;
+}
+
+/* Enhancing inputs */
+.hr-table-input {
+  width: 100%;
+  min-width: 120px;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: #1e293b;
+  background: #fff;
+  transition: all 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+.hr-table-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Beautiful Primary Button */
+.hr-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white !important;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+.hr-btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+}
+.hr-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Secondary outline button */
+.hr-btn-outline {
+  padding: 6px 12px;
+  background: transparent;
+  color: #4f46e5 !important;
+  border: 1px solid #c7d2fe;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+.hr-btn-outline:hover:not(:disabled) {
+  background: #eef2ff;
+  border-color: #a5b4fc;
+}
+
+/* Danger ghost button */
+.hr-btn-danger-ghost {
+  padding: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ef4444 !important;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+.hr-btn-danger-ghost:hover:not(:disabled) {
+  background: #fef2f2;
+}
+
+/* Action buttons */
+.hr-btn-save {
+  padding: 6px 12px;
+  color: #059669 !important;
+  border: 1px solid #34d399;
+  background: #ecfdf5;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.hr-btn-save:hover {
+  background: #d1fae5;
+  border-color: #10b981;
+}
+
+.hr-btn-cancel {
+  padding: 6px 12px;
+  color: #ef4444 !important;
+  border: 1px solid #fca5a5;
+  background: #fef2f2;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.hr-btn-cancel:hover {
+  background: #fee2e2;
+  border-color: #f87171;
+}

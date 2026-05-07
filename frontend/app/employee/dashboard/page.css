@@ -1,0 +1,353 @@
+/* ═══════════════════════════════════════════════════
+   Employee Dashboard Page — Premium UI
+═══════════════════════════════════════════════════ */
+
+@keyframes dashFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Page header ───────────────────────────────── */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  animation: dashFadeUp 0.3s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f1320;
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  font-size: 0.82rem;
+  color: #9ba3b2;
+  margin: 0.3rem 0 0;
+  font-weight: 450;
+}
+
+/* ─── Action Cards ─────────────────────────────── */
+.action-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.875rem;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+
+.action-card {
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  border: 1.5px solid #f0eeff;
+  border-radius: 16px;
+  background: #ffffff;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.action-card:hover {
+  border-color: #c4b8ff;
+  box-shadow:
+    0 4px 16px -4px rgb(109 93 252 / 0.16),
+    0 1px 4px rgb(0 0 0 / 0.04);
+  transform: translateY(-2px);
+}
+
+.action-cards-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.action-card-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+/* color variants */
+.action-card-icon--blue   { background: #eff6ff; color: #3b82f6; }
+.action-card-icon--purple { background: #f3f0ff; color: #6d5dfc; }
+.action-card-icon--green  { background: #ecfdf5; color: #059669; }
+.action-card-icon--orange { background: #fff7ed; color: #ea580c; }
+
+.action-card-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f1320;
+  line-height: 1.3;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.action-card-text {
+  font-size: 0.78rem;
+  color: #9ba3b2;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ─── Status / Stat Cards ───────────────────────── */
+.status-cards-container {
+  display: grid;
+  gap: 0.875rem;
+  padding-bottom: 1rem;
+}
+
+.status-card {
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1.5px solid #f0eeff;
+  border-radius: 14px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.status-card:hover {
+  border-color: #c4b8ff;
+  box-shadow: 0 2px 10px -2px rgb(109 93 252 / 0.1);
+}
+
+.status-card-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #f3f0ff;
+  color: #6d5dfc;
+  flex-shrink: 0;
+}
+
+.status-card-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f1320;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.status-card-label {
+  font-size: 0.72rem;
+  color: #9ba3b2;
+  margin: 0.2rem 0 0;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Two-column wrapper ─────────────────────────── */
+.recent-and-balance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* ─── Section blocks ────────────────────────────── */
+.section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f1320;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.section-link {
+  font-size: 0.75rem;
+  color: #6d5dfc;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.section-link:hover {
+  color: #4a3fd4;
+}
+
+/* ─── Activity Cards ─────────────────────────────── */
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.activity-card {
+  padding: 0.875rem 1rem;
+  border: 1.5px solid #f0eeff;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+}
+
+.activity-card:hover {
+  border-color: #c4b8ff;
+  box-shadow: 0 2px 8px -2px rgb(109 93 252 / 0.1);
+}
+
+.activity-card-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #f3f0ff;
+  flex-shrink: 0;
+  color: #6d5dfc;
+}
+
+.activity-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-card-label {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #0f1320;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.activity-card-date {
+  font-size: 0.72rem;
+  color: #9ba3b2;
+  margin: 0.15rem 0 0;
+}
+
+/* ─── Leave Balance ─────────────────────────────── */
+.leave-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.leave-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.leave-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leave-label {
+  font-size: 0.8rem;
+  color: #4a5263;
+  font-weight: 600;
+}
+
+.leave-count {
+  font-size: 0.72rem;
+  color: #9ba3b2;
+  font-weight: 500;
+}
+
+.progress-track {
+  height: 6px;
+  background: #f0eeff;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+/* ─── Salary box ─────────────────────────────────── */
+.salary-box {
+  margin-top: 0.25rem;
+  padding: 0.875rem 1rem;
+  border: 1.5px solid #f0eeff;
+  border-radius: 12px;
+  background: #fbfaff;
+}
+
+.salary-label {
+  font-size: 0.7rem;
+  color: #9ba3b2;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+  font-weight: 600;
+}
+
+.salary-date {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f1320;
+  margin: 0.25rem 0 0;
+  letter-spacing: -0.02em;
+}
+
+.salary-status {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+  color: #6b7485;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.salary-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgb(34 197 94 / 0.2);
+}
+
+/* ─── Responsive ────────────────────────────────── */
+@media (max-width: 768px) {
+  .action-cards-container {
+    grid-template-columns: 1fr;
+  }
+  .recent-and-balance {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,467 @@
+/* ═══════════════════════════════════════════════════
+   HR / Employee Settings Page  — Premium UI
+═══════════════════════════════════════════════════ */
+
+@keyframes settingsFadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.emp-settings {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: settingsFadeUp 0.3s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* ────────────────────────────────────────────────
+   Page Header
+──────────────────────────────────────────────── */
+.emp-settings__header h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f1320;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.emp-settings__header p {
+  color: #6b7485;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  font-weight: 450;
+}
+
+/* ────────────────────────────────────────────────
+   Hero Profile Card
+──────────────────────────────────────────────── */
+.emp-settings__hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px !important;
+  border: 1px solid #ede9fe !important;
+  box-shadow:
+    0 0 0 1px rgb(109 93 252 / 0.04),
+    0 8px 32px -8px rgb(109 93 252 / 0.14) !important;
+  padding: 0 !important;
+  background: white !important;
+}
+
+.emp-settings__hero-banner {
+  height: 120px;
+  background:
+    radial-gradient(ellipse at 70% 0%, rgb(139 124 248 / 0.5) 0%, transparent 60%),
+    radial-gradient(ellipse at 10% 100%, rgb(109 93 252 / 0.35) 0%, transparent 55%),
+    linear-gradient(135deg, #6d5dfc 0%, #8b7cf8 55%, #b8a9ff 100%);
+  position: relative;
+}
+
+/* decorative dots */
+.emp-settings__hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgb(255 255 255 / 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.emp-settings__hero-body {
+  position: relative;
+  z-index: 10;
+  padding: 1rem 2rem 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1.25rem;
+}
+
+/* ────────────────────────────────────────────────
+   Avatar
+──────────────────────────────────────────────── */
+.emp-settings__avatar {
+  margin-top: -54px;
+  width: 90px;
+  height: 90px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #7c6dfd 0%, #a99eff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  border: 4px solid #ffffff;
+  box-shadow:
+    0 0 0 2px rgb(109 93 252 / 0.18),
+    0 8px 24px rgb(109 93 252 / 0.3);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.emp-settings__avatar:hover {
+  transform: scale(1.04);
+}
+
+.emp-settings__hero-info {
+  flex: 1;
+  min-width: 160px;
+  padding-top: 0.5rem;
+}
+
+.emp-settings__hero-info h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1a1535;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.emp-settings__hero-info p {
+  color: #7d739d;
+  font-size: 0.88rem;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+/* ────────────────────────────────────────────────
+   Badges
+──────────────────────────────────────────────── */
+.emp-settings__badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.badge--purple {
+  background: #f3f0ff;
+  color: #6d5dfc;
+  border: 1px solid #ddd5ff;
+}
+
+.badge--green {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+/* ────────────────────────────────────────────────
+   Tab Bar
+──────────────────────────────────────────────── */
+.emp-settings__tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: #f4f3ff;
+  border-radius: 14px;
+  border: 1px solid #e8e4ff;
+}
+
+.emp-settings__tab {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: none;
+  background: transparent;
+  color: #7b72a8;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.emp-settings__tab:hover {
+  color: #6d5dfc;
+  background: rgb(109 93 252 / 0.06);
+}
+
+.emp-settings__tab.active {
+  background: #ffffff;
+  color: #5b4fe8;
+  font-weight: 700;
+  box-shadow:
+    0 2px 8px rgb(109 93 252 / 0.12),
+    0 1px 2px rgb(0 0 0 / 0.04);
+}
+
+/* ────────────────────────────────────────────────
+   Section layout
+──────────────────────────────────────────────── */
+.emp-settings__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation: settingsFadeUp 0.25s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* ────────────────────────────────────────────────
+   Cards override (premium glass)
+──────────────────────────────────────────────── */
+.emp-settings .bg-white {
+  background: #fff !important;
+  border: 1px solid #f0eeff !important;
+  border-radius: 16px !important;
+  box-shadow:
+    0 1px 3px rgb(0 0 0 / 0.04),
+    0 4px 16px -4px rgb(109 93 252 / 0.06) !important;
+  padding: 1.5rem !important;
+  transition: box-shadow 0.2s ease !important;
+}
+
+/* ────────────────────────────────────────────────
+   Section Title inside cards
+──────────────────────────────────────────────── */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1a1535;
+  margin-bottom: 1.35rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid #f0eeff;
+  letter-spacing: -0.01em;
+}
+
+.section-title svg {
+  color: #6d5dfc;
+  flex-shrink: 0;
+}
+
+/* ────────────────────────────────────────────────
+   Input Grid
+──────────────────────────────────────────────── */
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
+}
+
+/* ────────────────────────────────────────────────
+   Action buttons row
+──────────────────────────────────────────────── */
+.settings-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+/* ────────────────────────────────────────────────
+   Alert banners
+──────────────────────────────────────────────── */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.alert.success {
+  background: #f0fdf6;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+}
+
+.alert.error {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #be123c;
+}
+
+/* ────────────────────────────────────────────────
+   Security fields
+──────────────────────────────────────────────── */
+.security-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+}
+
+/* ────────────────────────────────────────────────
+   Muted text
+──────────────────────────────────────────────── */
+.muted-text {
+  font-size: 0.88rem;
+  color: #9b93bb;
+  line-height: 1.5;
+}
+
+/* ────────────────────────────────────────────────
+   Toggle rows (Notifications)
+──────────────────────────────────────────────── */
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f5f3ff;
+}
+
+.toggle-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.toggle-row:first-child {
+  padding-top: 0;
+}
+
+.toggle-row p {
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: #1a1535;
+  margin: 0;
+}
+
+.toggle-row span {
+  display: block;
+  font-size: 0.8rem;
+  color: #9b93bb;
+  margin-top: 0.2rem;
+  font-weight: 400;
+}
+
+/* ── Toggle switch ── */
+.toggle {
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.22s ease, box-shadow 0.22s ease;
+}
+
+.toggle span {
+  position: absolute;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  transition: left 0.22s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.18);
+}
+
+.toggle.on {
+  background: linear-gradient(135deg, #6d5dfc, #8b7cf8);
+  box-shadow: 0 0 0 3px rgb(109 93 252 / 0.15);
+}
+
+.toggle.on span  { left: 23px; }
+
+.toggle.off {
+  background: #ddd9ef;
+}
+
+.toggle.off span { left: 3px; }
+
+/* ────────────────────────────────────────────────
+   Danger / Sign Out Zone
+──────────────────────────────────────────────── */
+.danger-zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.danger-zone h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1535;
+  margin: 0;
+}
+
+.danger-zone p {
+  font-size: 0.85rem;
+  color: #9b93bb;
+  margin: 0.2rem 0 0;
+}
+
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border: 1.5px solid #fca5a5;
+  background: #fff1f2;
+  color: #dc2626;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 650;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.18s ease;
+}
+
+.logout-btn:hover {
+  background: #fee2e2;
+  border-color: #f87171;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgb(220 38 38 / 0.14);
+}
+
+/* ────────────────────────────────────────────────
+   Responsive
+──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .emp-settings {
+    padding: 1rem 1rem 3rem;
+  }
+
+  .emp-settings__hero-body {
+    padding: 0 1.25rem 1.5rem;
+  }
+
+  .emp-settings__avatar {
+    width: 76px;
+    height: 76px;
+    font-size: 1.5rem;
+  }
+
+  .emp-settings__tabs {
+    flex-direction: column;
+  }
+
+  .settings-actions {
+    flex-direction: column;
+  }
+
+  .danger-zone {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logout-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,149 @@
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {   output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Employee {
+  id           String   @id @default(cuid())
+  matricule    String   @unique
+  nom          String
+  prenom       String
+  fonction     String
+  departement  String
+  categorie    Categorie  //CADRE, MAITRISE, EXECUTION
+  email        String   @unique
+  createdAt    DateTime @default(now())
+  date de naissance DateTime 
+  addresse     String
+  telephone    String
+  nin          String
+  NumAssurance String
+  SituationFamiliale String
+  NombreDenfants Int
+  Groupage     String 
+  NumCompte    String
+  BanqueCcp    String
+  Affectation  String
+  Diplome      String
+  TypeContrat  String
+  Role         String
+  ManagerId    String
+  requests     Request[]
+  missions     Mission[]
+}
+
+enum Categorie {
+  CADRE_DIRECTION
+  CADRE
+  MAITRISE
+  EXECUTION
+}
+
+enum RequestType {
+  CONGE_ANNUEL
+  CONGE_MALADIE
+  CONGE_MATERNITE
+  CONGE_EXCEPTIONNEL
+  ORDRE_DE_MISSION
+  DEMANDE_FORMATION
+  MISE_A_DISPOSITION
+  AUTORISATION_ABSENCE
+}
+
+enum RequestStatus {
+  BROUILLON
+  SOUMIS
+  VALIDE_RESPONSABLE
+  VALIDE_RH
+  APPROUVE
+  REJETE
+  ANNULE
+}
+
+model Request {
+  id           String        @id @default(cuid())
+  reference    String        @unique
+  type         RequestType
+  status       RequestStatus @default(BROUILLON)
+
+  employeeId   String
+  employee     Employee      @relation(fields: [employeeId], references: [id])
+
+  // Common fields
+  dateDebut    DateTime?
+  dateFin      DateTime?
+  motif        String?
+  commentaire  String?
+
+  // JSON payload for type-specific fields
+  metadata     Json?
+
+  // Workflow
+  soumisAt     DateTime?
+  validateurRH String?
+  approuvePar  String?
+  rejeteMotif  String?
+
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  documents    Document[]
+  history      RequestHistory[]
+}
+
+model Mission {
+  id              String   @id @default(cuid())
+  reference       String   @unique  // ex: DAR-EN-026-2025-001
+
+  employeeId      String
+  employee        Employee @relation(fields: [employeeId], references: [id])
+
+  destination     String
+  objet           String
+  itineraire      String
+
+  dateDepart      DateTime
+  dateRetour      DateTime
+  moyenTransport  String
+
+  // Indemnités calculées automatiquement selon catégorie
+  categorieAgent  Categorie
+  nbJours         Int
+  tauxJournalier  Int      // DA/jour
+  totalRepas      Int
+  totalDecouchage Int
+  totalTransport  Int?
+  totalGeneral    Int
+
+  // Prise en charge partielle
+  hebergPris      Boolean  @default(false)
+  repasPris       Boolean  @default(false)
+
+  status          RequestStatus
+
+  createdAt       DateTime @default(now())
+}
+
+model Document {
+  id         String   @id @default(cuid())
+  requestId  String
+  request    Request  @relation(fields: [requestId], references: [id])
+  nom        String
+  type       String   // PDF, JPEG, etc.
+  url        String
+  uploadedAt DateTime @default(now())
+}
+
+model RequestHistory {
+  id         String   @id @default(cuid())
+  requestId  String
+  request    Request  @relation(fields: [requestId], references: [id])
+  action     String   // SOUMIS, VALIDE, REJETE, etc.
+  acteur     String
+  commentaire String?
+  createdAt  DateTime @default(now())
+}
